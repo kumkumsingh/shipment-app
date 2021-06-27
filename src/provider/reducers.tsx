@@ -1,10 +1,13 @@
 import  { InitialStateType, ShipmentType } from '../interfaces/shipment'
+import { VesselType } from '../interfaces/vessel'
 
 export const initialState : InitialStateType= {
-    shipments: []
+    shipments: [],
+    vessel:{ vessel:'','vessel-eta':''}
   }
 export type ShipmentActions =
 |{ type: "FETCH_SHIPMENT", payload:ShipmentType[]}
+|{ type: "FETCH_VESSEL", payload:VesselType}
 | { type: "CREATE_SHIPMENT" | "UPDATE_SHIPMENT", payload:ShipmentType}
 
 export const shipmentReducer = (state:InitialStateType, action:ShipmentActions) => {
@@ -16,6 +19,8 @@ export const shipmentReducer = (state:InitialStateType, action:ShipmentActions) 
         }
         case 'FETCH_SHIPMENT': 
         return { ...state, shipments:action.payload }
+        case 'FETCH_VESSEL': 
+        return {...state,vessel:action.payload }
          case 'UPDATE_SHIPMENT': 
          const findShipmentIndex = state.shipments.findIndex(value => value.id === action.payload.id);
           if(findShipmentIndex !== -1){
