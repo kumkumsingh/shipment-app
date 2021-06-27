@@ -5,7 +5,7 @@ import cargo from '../images/cargo.jpg'
 import { useForm } from 'react-hook-form'
 import { useEffect , useContext, useState} from 'react'
 import { AppContext } from '../provider/storeContext';
-import { createShipment } from '../services/shipment'
+import { createShipment, fetchShipment , updateShipment} from '../services/shipment'
 
 const InnerDiv = styled.div`
     background-repeat: no-repeat;
@@ -41,7 +41,6 @@ type ShipmentType = {
     "shipment-eta": string;
   }
 const ShipmentForm = () => {
-    const { handleSubmit } = useForm<ShipmentType>()
         const { state, dispatch } = useContext(AppContext);
           const [formData, setFormData] = useState<ShipmentType>({
     customer: "",
@@ -49,31 +48,41 @@ const ShipmentForm = () => {
      "shipment-eta": ""
   })
 
-  const onSubmit1 = async (e:any) => {
-      console.log('formData', formData)
+  const onSubmit = async (e:any) => {
       try{
-    await createShipment(formData)
-    // dispatch({type: 'CREATE_SHIPMENT', payload: { customer: formData.customer, vessel: formData.vessel, "shipment-eta": formData.["shipment-eta"] }})
+        //   const data = await fetchShipment()
+  
+        //   dispatch({type:'FETCH_SHIPMENT', payload:data})
+    // await createShipment(formData)
+    // dispatch({type: 'CREATE_SHIPMENT', payload: { customer: formData.customer, vessel: formData.vessel, "shipment-eta": formData["shipment-eta"] }})
+     const response = await updateShipment(formData, 4)
+     dispatch({type: 'UPDATE_SHIPMENT', payload:response })
       }
       catch (err) {
       console.log(err.error)
     }
   }
+  
+  useEffect(()=>{
+      const fetchData = async() =>{
+        const data = await fetchShipment()
+        dispatch({type:'FETCH_SHIPMENT', payload:data})
+   
+  }
+        fetchData()
+    
+      
+  },[dispatch])
   const handleInputChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-//  useEffect(() =>{
-//     dispatch({type: 'CREATE_SHIPMENT', payload: { customer: 'customer1', vessel: 'vessel1', "shipment-eta": '26-06-2021' }})
-//  }, [dispatch, state])
-
-
 return (
     
 <InnerDiv style={{ 
                     backgroundImage: `url(${cargo})`,
                 }}>
 <StyledHeader as="h1">Cargoplot will match you with the most suitable freight forwarders. Get competitive pricing and service to transport your goods.</StyledHeader>
-  <StyledForm onSubmit={onSubmit1}>
+  <StyledForm onSubmit={onSubmit}>
     <Form.Field>
       <StyledLabel>Customer Name:</StyledLabel>
       <input placeholder='customer' name="customer"   onChange={handleInputChange}
@@ -87,7 +96,7 @@ return (
     <Form.Field>
       <StyledLabel>Shipment date:</StyledLabel>
       <input placeholder='date' name="shipment-eta"   onChange={handleInputChange}
-             />
+             value={formData["shipment-eta"]} />
     </Form.Field>
     <Button type='submit' color="blue" >Submit</Button>
   </StyledForm>
