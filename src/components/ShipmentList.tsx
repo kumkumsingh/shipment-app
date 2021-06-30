@@ -25,16 +25,16 @@ const ShipmentList = () => {
 
   useEffect(() => {
     setcurrentPage(1)
-  }, [state.shipments])
+  }, [state?.shipments])
 
   const pages = []
-  for (let i = 1; i <= Math.ceil(state.shipments.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(state?.shipments?.length / itemsPerPage); i++) {
     pages.push(i)
   }
 
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = state.shipments.slice(indexOfFirstItem, indexOfLastItem)
+  const currentItems = state?.shipments?.slice(indexOfFirstItem, indexOfLastItem)
 
   const handleClick = (id: string) => {
     setcurrentPage(Number(id))
@@ -75,7 +75,7 @@ const ShipmentList = () => {
     }
   }
 
-  const renderData = currentItems.map((item, i) => {
+  const renderData = currentItems?.map((item, i) => {
     return (
       <div key={i}>
         <ShipmentListItem shipment={item} />
@@ -89,7 +89,7 @@ const ShipmentList = () => {
         Your shipment lists
       </Header>
       <div className="detail-conatiner">{renderData}</div>
-      {currentItems.length >= 1 ? (
+      {currentItems?.length >= 1 ? (
         <ul className="pageNumbers">
           <li>
             <button onClick={handlePrevbtn} disabled={currentPage === pages[0]}>
@@ -104,7 +104,7 @@ const ShipmentList = () => {
           </li>
         </ul>
       ) : (
-        <p> Oops !! No results found. Search or Filter for channels &#x1F60a;</p>
+        <p style={{textAlign:'center'}}> Oops !! No shipments found , please create your shipment list &#x1F60a;</p>
       )}
     </React.Fragment>
   )
