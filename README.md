@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+## Cargoplot shipment App
+1. A React and typescript application. 
+2. Be able to register a new shipment
+3. See a list of registered shipments
+4. Retrieve the latest ETA for a vessel
+5. Update the ETA for a shipment to match the vessel ETA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Technolgies used 
 
-## Available Scripts
+1. React , React hooks
+2. Styled Components
+3. Typescript
+4. Semantic UI React
 
-In the project directory, you can run:
+# Table of Contents
+1. [Setoftheproject](#Setoftheproject)
+2. [Installations](#Installations)
+3. [Howtoruntheapplication](#Howtoruntheapplication)
 
-### `npm start`
+<a name="Setoftheproject"></a>
+# Set of theproject
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the repository by using the following command.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+https://github.com/kumkumsingh/shipment-app.git
 
-### `npm test`
+2. cd to the folder shipment-app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    cd shipment-app
 
-### `npm run build`
+<a name="Installations"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Installations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Give the following command in the command line.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npm i
 
-### `npm run eject`
+<a name="Howtoruntheapplication"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Run the project on localhost
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Give the following command for running in localhost.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    npm run start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    http://localhost:3000/
