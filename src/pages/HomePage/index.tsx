@@ -9,7 +9,7 @@ import { fetchVessel } from '../../services/shipment'
  
 
 const HomePage = () => {
-    // const { state, dispatch } = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
     // useEffect(()=>{
     //     const fetchData = async() =>{
     //       const data = await fetchShipment()
@@ -32,17 +32,18 @@ const HomePage = () => {
 
     // }
 
-    const { state, dispatch } = useContext(AppContext);
-    useEffect(()=>{
-        const fetchData = async() =>{
-          const data = await fetchVessel('MONACO-MAERSK')
-          dispatch({type:'FETCH_VESSEL', payload:data})
+    // const { state, dispatch } = useContext(AppContext);
+    // useEffect(()=>{
+    //     const fetchData = async() =>{
+    //       const data = await fetchVessel('MONACO-MAERSK')
+    //       dispatch({type:'FETCH_VESSEL', payload:data})
      
-    }
-          fetchData()
+    // }
+    //       fetchData()
       
         
-    },[dispatch])
+    // },[dispatch])
+   
     return(
         <React.Fragment>
            <ShipmentForm/>        

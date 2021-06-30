@@ -1,4 +1,4 @@
 export type VesselType = {
-    vessel: string;
+    name: string;
     "vessel-eta": string;
 }

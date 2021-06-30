@@ -1,34 +1,36 @@
-import * as React from "react";
-import  { Component, ErrorInfo, ReactNode } from "react"
+import * as React from 'react'
+import styled from 'styled-components'
 
-interface Props {
-  children: ReactNode;
-}
+const Page = styled.div`
+    padding: 20px;
+    text-align: center;
+`
 
-interface State {
-  hasError: boolean;
-}
-
-class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
-    hasError: false
-  };
-
-  public static getDerivedStateFromError(_: Error): State {
-    return { hasError: true };
+class ErrorBoundary extends React.Component<any, any> {
+  constructor (props:any) {
+    super(props)
+    this.state = { hasError: false }
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("Uncaught error:", error, errorInfo);
+  static getDerivedStateFromError () {
+    return { hasError: true }
   }
 
-  public render() {
+  componentDidCatch (error:any, errorInfo:any) {
+    console.error('ErrorBoundary', error, errorInfo)
+  }
+
+  render () {
     if (this.state.hasError) {
-      return <h1>Sorry.. there was an error</h1>;
+      return (
+        <Page>
+          <h1>Something went wrong.</h1>
+        </Page>
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary

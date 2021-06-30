@@ -1,8 +1,10 @@
+
 import { VesselType } from './vessel'
 
 export type InitialStateType = {
     shipments: ShipmentType[];
-    vessel:VesselType
+    vessel:VesselType;
+    matchEta:MatchEtaType;
   }
   export type ShipmentType = {
     id:number;
@@ -15,4 +17,9 @@ export type InitialStateType = {
     customer: string;
     vessel: string;
     "shipment-eta": string;
+  }
+  export type MatchEtaType ={
+    matchEta:boolean;
+    id:number;
+
   }
