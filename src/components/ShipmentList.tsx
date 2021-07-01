@@ -12,7 +12,7 @@ const ShipmentList = () => {
   const [currentPage, setcurrentPage] = useState<number>(1)
   const itemsPerPage = 2
   const pageNumberLimit = 5
-  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState<number>(2)
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState<number>(5)
   const [minPageNumberLimit, setminPageNumberLimit] = useState<number>(0)
 
   useEffect(() => {
