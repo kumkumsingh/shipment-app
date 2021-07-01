@@ -12,6 +12,7 @@ const CreateShipment = () => {
     try {
       const response = await createShipment(data)
       dispatch({ type: 'CREATE_SHIPMENT', payload: response })
+      notify('Successfully added shipment')
     } catch (err) {
       notify(err.response.data)
     }
