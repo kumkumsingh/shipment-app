@@ -39,7 +39,6 @@ type IShipmentForm = {
     onSubmit: (data:FormDataType) => Promise<void> ;
     buttonContent:string ;
     defaultValues?:FormDataType;
-    disabled?:boolean;
 }
 const ShipmentForm = (props:IShipmentForm) => {
   const { register, handleSubmit } = useForm({
@@ -54,11 +53,11 @@ const ShipmentForm = (props:IShipmentForm) => {
         <StyledForm onSubmit={handleSubmit(props.onSubmit)}>
           <Form.Field>
             <StyledLabel>Customer Name:</StyledLabel>
-            <input {...register("customer")} placeholder='customer' disabled={props.disabled}/>
+            <input {...register("customer")} placeholder='customer'/>
           </Form.Field>
           <Form.Field>
             <StyledLabel>Vessel Name:</StyledLabel>
-              <input {...register("vessel")} placeholder='vessel' disabled={props.disabled}/>
+              <input {...register("vessel")} placeholder='vessel'/>
           </Form.Field>
           <Form.Field>
             <StyledLabel>Shipment date:</StyledLabel>

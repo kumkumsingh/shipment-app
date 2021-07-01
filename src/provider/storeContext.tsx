@@ -12,10 +12,6 @@ import logger from 'use-reducer-logger';
     state: initialState,
     dispatch: () => null
   });
-//   const mainReducer = ({ shipments}: InitialStateType, action: ShipmentActions) => ({
-//     products: shipmentReducer(shipments, action)
-
-//   });
    const AppProvider: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(logger(shipmentReducer), initialState);
     return (

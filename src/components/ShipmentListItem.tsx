@@ -22,7 +22,6 @@ type IShipmentListItem = {
  shipment:ShipmentType
 }
 const ShipmentListItem = (props:IShipmentListItem) => {
-  ''
   const { state, dispatch } = useContext(AppContext)
   const [updatedShipmentEta, setUpdatedShipmentEta] = useState<string>()
   const [open, setOpen] = React.useState(false)
